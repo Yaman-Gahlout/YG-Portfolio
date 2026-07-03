@@ -1,25 +1,16 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import dotenv from "dotenv";
+
 dotenv.config();
-import dns from "dns";
 
-dns.setDefaultResultOrder("ipv4first");
-
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const sendContactEmail = async (name, email, subject, message) => {
   try {
-    const info = await transporter.sendMail({
-      from: `"${name}" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_USER, // Your email address
+    const { data, error } = await resend.emails.send({
+      from: "Yaman Gahlout Portfolio <onboarding@resend.dev>", // Replace after verifying your domain
+      to: process.env.CONTACT_EMAIL,
+      replyTo: email,
       subject: `📩 Portfolio Contact: ${subject}`,
 
       html: `
@@ -80,7 +71,7 @@ const sendContactEmail = async (name, email, subject, message) => {
           </div>
 
           <p style="margin-top:35px;font-size:15px;color:#6b7280;">
-            You can reply directly to this email. The reply will be sent to
+            Click <strong>Reply</strong> to respond directly to
             <strong>${email}</strong>.
           </p>
 
@@ -97,10 +88,16 @@ const sendContactEmail = async (name, email, subject, message) => {
       `,
     });
 
-    console.log("Contact Email Sent:", info.messageId);
-    return info;
+    if (error) {
+      console.error("Resend Error:", error);
+      throw error;
+    }
+
+    console.log("Contact Email Sent:", data);
+
+    return data;
   } catch (error) {
-    console.error("Email Error:", error);
+    console.error("Send Email Error:", error);
     throw error;
   }
 };

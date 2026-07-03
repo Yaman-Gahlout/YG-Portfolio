@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import sendContactEmail from "./mail.js";
+
 dotenv.config();
 
 const app = express();
