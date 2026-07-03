@@ -5,7 +5,6 @@ import ProjectCard from "../components/ProjectCard";
 
 import SocialNovaImage from "../assets/Projects-image/socialnovaImage.png";
 import ExamNotesImage from "../assets/Projects-image/ExamNotesAIImage.png";
-import TouristImage from "../assets/Projects-image/socialNovaImage.png";
 
 import ShoppingImage from "../assets/Projects-image/shopping-management-system.png";
 import TodoImage from "../assets/Projects-image/Todo-App.png";
