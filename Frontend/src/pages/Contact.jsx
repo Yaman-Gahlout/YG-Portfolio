@@ -31,7 +31,7 @@ export default function Contact() {
       // await axios.post("YOUR_API_URL/contact", data);
       console.log(data);
       const response = await axios.post(
-        "http://localhost:9000/send-email",
+        "https://yg-portfolio-backend.onrender.com/send-email",
         data,
         {
           withCredentials: true,
