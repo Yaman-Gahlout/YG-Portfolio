@@ -12,7 +12,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: "https://yg-portfolio.onrender.com",
+    origin: [
+      "https://yg-portfolio.onrender.com",
+      "https://yaman-gahlout-portfolio.vercel.app/",
+    ],
     credentials: true,
   }),
 );
