@@ -71,9 +71,9 @@ export default function Projects() {
 
       technologies: ["React", "Node.js", "MongoDB", "Express.js"],
 
-      github: "",
+      github: "https://github.com/Yaman-Gahlout/ExamNotes.Ai",
 
-      live: "",
+      live: "https://examnotes-ai-ytdj.onrender.com",
     },
 
     // {
@@ -108,7 +108,7 @@ export default function Projects() {
       description: "Responsive shopping platform.",
       technologies: ["React", "Tailwind CSS"],
       features: ["Shopping Cart", "Responsive", "Modern UI"],
-      github: "https://github.com/Yaman-Gahlout/Shopping-Management-System",
+      //github: "https://github.com/Yaman-Gahlout/Shopping-Management-System",
     },
 
     {
